@@ -30,17 +30,17 @@ public class Main {
 
         List<RomanNumeral> romanNumerals = RomanNumeral.getReverseSortedValues();
         int i = 0;
-        StringBuilder sb = new StringBuilder();
+        String sb = "";
         while ((input > 0) && (i < romanNumerals.size())) {
             RomanNumeral currentSymbol = romanNumerals.get(i);
             if (currentSymbol.getValue() <= input) {
-                sb.append(currentSymbol.name());
+                sb += currentSymbol.name();
                 input -= currentSymbol.getValue();
             } else {
                 i++;
             }
         }
-        return sb.toString();
+        return sb;
     }
 
     public static int inArabic (String input){
@@ -55,8 +55,7 @@ public class Main {
 
         int sum = 0;
         for(int i = 0; i < input.length(); i++){
-            char ch = input.charAt(i);
-            int a = map.get(ch);
+            int a = map.get(input.charAt(i));
             if(i + 1 < input.length()) {
                 int b = map.get(input.charAt(i + 1));
                 if(a >= b){
